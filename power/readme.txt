@@ -20,11 +20,11 @@ See safe_shutdown.py for an example that can be used as a Linux daemon to run on
 
 [Reading the PMIC]
 PMIC  is on I2C-0 address 0x24
-Easy to get started: use i2cget from the shell to query specific registers. 
+Easy to get started: use i2cget from the shell to query specific registers.
 The specific register addresses and their meanings are in the datasheet.
 
-Example: get the STATUS (0xA) register which tells us which power inputs (USB, AC) are active. 
-If neither are true then we must be on battery! 
+Example: get the STATUS (0xA) register which tells us which power inputs (USB, AC) are active.
+If neither are true then we must be on battery!
 
 i2cget -y -f 0 0x24 0xA
 
