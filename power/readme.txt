@@ -1,3 +1,5 @@
+Note: see https://github.com/mdeweerd/beaglebone_snippets/tree/v2013 for the python2.7 version
+
 Beaglebone Black power management IC
 
 TI TPS65217  http://www.ti.com/product/tps65217C
