@@ -4,7 +4,8 @@
 # easy_install pyevdev
 #
 
-from evdev import InputDevice, list_devices,ecodes
+from evdev import InputDevice, ecodes, list_devices
+
 devices = map(InputDevice, list_devices())
 
 # print an entry with its index
@@ -20,27 +21,26 @@ for dev in devices:
     print( '%-20s %-32s %s' % (dev.fn, dev.name, dev.phys) )
     capav =dev.capabilities(True,True)
     capa =dev.capabilities(False,False)
-  
+
     print "\tEvent types %s: "%(capav.keys()) # EV_KEY, EV_ABS, etc
 
     print "\t%d Buttons:"%len(capa.get(ecodes.EV_KEY,[]))
-    printlist(capav.get(('EV_KEY', 1L),[]))
-    
+    printlist(capav.get(('EV_KEY', 1),[]))
+
     print "\t%d Relative Axes:"%len(capa.get(ecodes.EV_REL,[]))
-    printlist(capav.get(('EV_REL', 2L),[]))
+    printlist(capav.get(('EV_REL', 2),[]))
 
     print "\t%d Absolute Axes:"%len(capa.get(ecodes.EV_ABS,[]))
-    printlist(capav.get(('EV_ABS', 3L),[]))
-   
+    printlist(capav.get(('EV_ABS', 3),[]))
+
     print "\t%d Misc Events:"%len(capa.get(ecodes.EV_MSC,[]))
-    print "\t\t%s"%capav.get(('EV_MSC', 4L),[])
-    
+    print "\t\t%s"%capav.get(('EV_MSC', 4),[])
+
     print "\t%d Sync Events:"%len(capa.get(ecodes.EV_SYN,[]))
-    print "\t\t%s"%capav.get(('EV_SYN', 0L),[])
-   
+    print "\t\t%s"%capav.get(('EV_SYN', 0),[])
+
     print "\t%d Forcefeedback capabilities:"%len(capa.get(ecodes.EV_FF,[]))
-    print "\t\t%s"%capav.get(('EV_FF', 21L),[])  
-   
+    print "\t\t%s"%capav.get(('EV_FF', 21),[])
+
     print "\tHID LEDs: %s"%dev.leds(verbose=True)
     print
-
